@@ -153,12 +153,12 @@ def run():
         layer_output = layers(layer3_out, layer4_out, layer7_out, num_classes)
 
         # Train NN using the train_nn function
-        epochs = 100
-        batch_size = 16
+        epochs = 10
+        batch_size = 8
         learning_rate = tf.placeholder(tf.float32)
-        correct_label = tf.placeholder(int32, (None, None, None, num_classes))
+        correct_label = tf.placeholder(tf.float32, (None, None, None, num_classes))
 
-        logits, train_op, cross_entropy_loss = optimize(nn_last_layer, correct_label, learning_rate, num_classes)
+        logits, train_op, cross_entropy_loss = optimize(layer_output, correct_label, learning_rate, num_classes)
         train_nn(sess, epochs, batch_size, get_batches_fn, train_op, cross_entropy_loss, input_image,
              correct_label, keep_prob, learning_rate)
 
@@ -169,5 +169,4 @@ def run():
 
 
 if __name__ == '__main__':
-    #run()
-    pass
+    run()
