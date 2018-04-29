@@ -51,21 +51,27 @@ GitHub also provides a [tutorial](https://guides.github.com/features/mastering-m
 
 ### Network Architecture
 The fully convolution neural network in the project is based on this paper (https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf).
-
+```
 VGG-16
   |--layer3--> layer3 conv 1x1 -------------skip------------> upsample --> output
   |
   |--layer4--> layer4 conv 1x1 ------skip-----> upsample ↗
   |
   |--layer7--> layer7 conv 1x1 -> upsample ↗
-
+```
 
 ### Training Hyperparameters & Loss
-|Epoch|15|15|15|15|15|15|
-|Batch size|4|8|16|4|4|4|
-|Learning rate|0.0001|0.0001|0.001|0.00001|0.0001|0.0001|
-|Keep probability|0.8|0.8|0.8|0.8|0.8|0.5|
-|Loss||||||
+|Parameter              |case1 |case2 |case3 |case4  |case5|case6 |
+|:----------------------|-----:|-----:|-----:|------:|----:|-----:|
+|Epoch                  |    15|    15|    15|     15|   15|    15|
+|Batch size             |     4|     8|    16|      4|    4|     4|
+|Learning rate          |0.0001|0.0001|0.0001|0.00001|0.001|0.0001|
+|Keep probability       |   0.8|   0.8|   0.8|    0.8|  0.8|   0.5|
+|Avg. loss in last batch|0.0418|0.0464|0.0682|0.0767|0.0557|0.0352|
+
+Based on case 1,2,3, we know lower batch size performs better and maybe 2 might be even better.
+Based on case 1,4,5, we know 10e-4 learning rate has better result than 10e-3 and 10e-5.
+Based on case 1 and 6, we know with the lower keep probability we can improve the result even more.
 
 ### Result
 ![Image](./result.gif)
