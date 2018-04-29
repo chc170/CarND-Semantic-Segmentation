@@ -62,7 +62,7 @@ VGG-16
 
 ### Training Hyperparameters & Loss
 |Epoch|15|15|15|15|15|15|
-|Batch size|4|8|16|4|4|4
+|Batch size|4|8|16|4|4|4|
 |Learning rate|0.0001|0.0001|0.001|0.00001|0.0001|0.0001|
 |Keep probability|0.8|0.8|0.8|0.8|0.8|0.5|
 |Loss||||||
