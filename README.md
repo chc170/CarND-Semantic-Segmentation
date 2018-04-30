@@ -73,6 +73,9 @@ Based on case 1,2,3, we know lower batch size performs better and maybe 2 might 
 Based on case 1,4,5, we know 10e-4 learning rate has better result than 10e-3 and 10e-5.
 Based on case 1 and 6, we know with the lower keep probability we can improve the result even more.
 
+With the last setting and different epochs:
+![Image1](./chart.png)
+
 ### Result
-![Image](./result.gif)
+![Image2](./result.gif)
 
